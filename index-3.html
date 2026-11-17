@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<title>Berkshire County Ready Automotive</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Mobile and same-day mechanic serving Berkshire County, MA and bordering New York towns. Se habla español. Call, text or WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: road-sign identity — forest-green bands with safety-yellow signage, single column of full-width bands */
+:root{
+  --bg:#F5F7F4; --surface:#FFFFFF; --ink:#0E1C15; --muted:#36443D; --line:#D7DED9;
+  --green:#123B2C; --green-2:#1C5440; --yellow:#F2B705; --on-yellow:#1A1A0E; --on-green:#F3F6F2;
+  --danger:#B3261E;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D1612; --surface:#14211B; --ink:#F1F5F2; --muted:#C3D2C9; --line:#2A3B33;
+  --green:#0A2219; --green-2:#1F5A44; --yellow:#F5C02A; --on-yellow:#1A1A0E; --on-green:#E7EEE9; --danger:#F2867E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1612; --surface:#14211B; --ink:#F1F5F2; --muted:#C3D2C9; --line:#2A3B33;
+  --green:#0A2219; --green-2:#1F5A44; --yellow:#F5C02A; --on-yellow:#1A1A0E; --on-green:#E7EEE9; --danger:#F2867E; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,5vw,46px);font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+h3{font-size:24px;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font-family:var(--display);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:17px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--green)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--green);color:var(--on-green)}
+header .wrap{display:flex;align-items:center;gap:12px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;margin-right:auto}
+.brand svg{width:40px;height:40px;flex:none}
+.brand b{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.5px;line-height:1;display:block}
+.brand small{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:1.5px;opacity:.8;display:block;text-transform:uppercase}
+nav.links{display:flex;gap:18px;font-family:var(--display);font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:19px}
+nav.links a{text-decoration:none}
+nav.links a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.lang{display:flex;border:1.5px solid color-mix(in srgb,var(--on-green) 45%,transparent);border-radius:999px;overflow:hidden;flex:none}
+.lang button{background:none;border:0;color:var(--on-green);font:700 17px var(--display);letter-spacing:1px;padding:8px 14px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--yellow);color:var(--on-yellow)}
+@media (max-width:860px){nav.links{display:none}}
+@media (max-width:420px){.brand small{display:none}.brand b{font-size:18px}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 20px var(--display);letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:14px 22px;border-radius:10px;border:2px solid transparent;cursor:pointer}
+.btn-yellow{background:var(--yellow);color:var(--on-yellow)}
+.btn-yellow:hover{filter:brightness(1.06)}
+.btn-ghost{border-color:currentColor;background:transparent;color:inherit}
+.btn svg{width:22px;height:22px}
+.btn-wa{background:#1F8F4E;color:#fff}
+.btn-wa:hover{filter:brightness(1.08)}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px}
+
+/* hero */
+.hero{background:var(--green);color:var(--on-green);overflow:hidden;position:relative}
+.hero .wrap{padding-block:48px 56px;display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(46px,8vw,86px);font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero .lede{font-size:23px;max-width:34ch;margin-top:16px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .bilingual{margin-top:18px;font-weight:600;display:flex;align-items:center;gap:8px;opacity:.95}
+.hero .bilingual span{background:color-mix(in srgb,var(--on-green) 14%,transparent);padding:5px 12px;border-radius:999px;font-size:17px}
+.hills{position:absolute;left:0;right:0;bottom:-2px;height:60px;width:100%;pointer-events:none}
+.hills path{fill:var(--bg)}
+.callcard{background:var(--yellow);color:var(--on-yellow);border-radius:16px;padding:24px;position:relative;z-index:1}
+.callcard .eyebrow{color:var(--on-yellow);opacity:.75}
+.callcard .num{font:800 clamp(36px,5vw,48px) var(--display);letter-spacing:1px;display:block;margin:6px 0 4px;text-decoration:none;font-variant-numeric:tabular-nums;user-select:all}
+.callcard ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px;font-weight:700;font-size:20px}
+.callcard li{display:flex;gap:10px;align-items:flex-start}
+.callcard li::before{content:"";flex:none;width:10px;height:10px;margin-top:8px;background:var(--on-yellow);transform:rotate(45deg)}
+.copy{background:none;border:1.5px solid var(--on-yellow);color:var(--on-yellow);font:600 16px var(--body);padding:6px 12px;border-radius:6px;cursor:pointer}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-block:36px 64px}}
+
+/* perks strip */
+.perks .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:28px 8px}
+.perk{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.perk b{font:700 24px var(--display);text-transform:uppercase;letter-spacing:.5px;display:block}
+.perk p{color:var(--muted);font-size:18px;margin-top:4px}
+@media (max-width:820px){.perks .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.perks .wrap{grid-template-columns:1fr}}
+
+section{padding-block:56px}
+.head{display:grid;gap:8px;margin-bottom:28px;max-width:62ch}
+.head p{color:var(--muted)}
+
+/* emergency band */
+.sos{background:var(--surface);border-block:1px solid var(--line)}
+.sos .wrap{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:24px}
+.sos .sign{display:flex;gap:16px;align-items:center;min-width:0}
+.sos .diamond{flex:none;width:52px;height:52px;background:var(--yellow);transform:rotate(45deg);border-radius:6px;display:grid;place-items:center;border:3px solid var(--on-yellow)}
+.sos .diamond span{transform:rotate(-45deg);font:800 30px var(--display);color:var(--on-yellow)}
+.sos h3{font-size:32px;text-transform:uppercase}
+.sos p{color:var(--muted)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.svc div{border-top:3px solid var(--green-2);background:var(--surface);padding:16px;border-radius:0 0 10px 10px}
+.svc h3{font-size:26px;text-transform:uppercase}
+.svc p{color:var(--muted);font-size:18px;margin-top:4px}
+.makes{margin-top:18px;color:var(--muted);font-size:19px}
+
+/* prices */
+#prices{background:var(--surface);border-block:1px solid var(--line)}
+.fees{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.fee{border:2px solid var(--green-2);border-radius:12px;padding:16px}
+.fee .amt{font:800 48px var(--display);font-variant-numeric:tabular-nums;line-height:1}
+.fee b{font:700 22px var(--display);text-transform:uppercase;letter-spacing:.5px;display:block;margin-top:6px}
+.fee p{color:var(--muted);font-size:18px;margin-top:4px}
+@media (max-width:760px){.fees{grid-template-columns:1fr}}
+.pgroups{display:grid;grid-template-columns:1fr 1fr;gap:12px 40px}
+@media (max-width:760px){.pgroups{grid-template-columns:1fr}}
+.pgroup h3{font-size:24px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding-bottom:6px;border-bottom:2px solid var(--ink);margin-top:16px}
+.prow{display:flex;justify-content:space-between;gap:16px;padding:12px 0;font-size:20px;border-bottom:1px dashed var(--line)}
+.prow span{min-width:0}
+.prow small{display:block;color:var(--muted);font-size:17px}
+.prow b{font:700 24px var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fine{margin-top:24px;color:var(--muted);font-size:18px;max-width:75ch}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about .story{display:grid;gap:14px;max-width:62ch}
+.facts{display:grid;gap:12px}
+.fact{font-size:20px;display:flex;gap:16px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+.fact b{font:800 52px var(--display);color:var(--green-2);min-width:2.4ch;line-height:1}
+:root[data-theme="dark"] .fact b{color:var(--yellow)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fact b{color:var(--yellow)}}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+/* area */
+#area{background:var(--green);color:var(--on-green)}
+#area .head p{color:var(--on-green)}
+.towns{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.towns h3{font-size:24px;text-transform:uppercase;letter-spacing:1px;color:var(--yellow);margin-bottom:10px}
+.towns ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.towns li{border:1px solid color-mix(in srgb,var(--on-green) 35%,transparent);border-radius:999px;padding:5px 13px;font-size:18px}
+@media (max-width:760px){.towns{grid-template-columns:1fr}}
+
+/* booking */
+.book{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:start}
+@media (max-width:820px){.book{grid-template-columns:1fr}}
+.note{background:var(--surface);border-left:6px solid var(--yellow);border-radius:0 12px 12px 0;padding:16px 18px;display:grid;gap:8px}
+.note b{font:700 24px var(--display);text-transform:uppercase}
+form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
+form .full{grid-column:1/-1}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-weight:700;font-size:18px;min-width:0}
+input,select,textarea{font:inherit;font-size:18px;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--green-2);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--yellow) 55%,transparent)}
+textarea{min-height:90px;resize:vertical}
+.err{color:var(--danger);font-size:17px;font-weight:600}
+.result{grid-column:1/-1;border:2px solid var(--green-2);border-radius:10px;padding:16px;display:grid;gap:10px}
+.result pre{white-space:pre-wrap;font:17px/1.5 var(--body);margin:0;background:var(--bg);padding:12px;border-radius:8px;user-select:all}
+.result .row{display:flex;flex-wrap:wrap;gap:8px}
+.result .btn{font-size:16px;padding:10px 16px}
+.result .btn-ghost{color:var(--ink)}
+
+footer{background:var(--green);color:var(--on-green);padding-block:36px}
+footer .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start}
+footer .brand svg{width:56px;height:56px}
+footer .contact{display:grid;gap:4px}
+footer small{font-size:18px}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 144 144">
+    <rect width="144" height="144" rx="28" fill="#123B2C"/>
+    <polyline points="20,82 52,46 72,66 96,36 124,82" fill="none" stroke="#F2B705" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+    <g fill="#F2B705"><rect x="40" y="100" width="64" height="12" rx="6"/><circle cx="34" cy="106" r="16"/><circle cx="112" cy="106" r="12"/></g>
+    <rect x="18" y="100" width="18" height="12" fill="#123B2C"/><circle cx="112" cy="106" r="5" fill="#123B2C"/>
+  </symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.8.7.8-2.7-.2-.3A8 8 0 0 1 12 4m-3.2 4c-.2 0-.5 0-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.1 2.9c.1.2 2 3.1 4.9 4.3 2.4.9 2.9.8 3.4.7s1.6-.6 1.8-1.3.2-1.2.2-1.3l-.4-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4z"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3zm12 8H5v9h14z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Berkshire County Ready Automotive">
+      <svg><use href="#mark"/></svg>
+      <span><b>BERKSHIRE COUNTY READY</b><small data-i18n="tagline">Mobile &amp; Same Day Mechanic</small></span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#prices" data-i18n="nav_prices">Prices</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#book" data-i18n="nav_book">Book</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--yellow)" data-i18n="hero_eyebrow">Berkshire County, MA &amp; bordering NY</p>
+      <h1 data-i18n-html="hero_h1">Your mechanic <em>comes to you.</em></h1>
+      <p class="lede" data-i18n="hero_lede">Broke down, won't start, or just need service? We fix it in your driveway, at work, or on the roadside, often the same day.</p>
+      <div class="ctas">
+        <a class="btn btn-yellow" href="tel:+14132126622"><svg><use href="#phone"/></svg><span data-i18n="cta_call">Call (413) 212-6622</span></a>
+        <a class="btn btn-wa" href="https://wa.me/14132126622" target="_blank" rel="noopener"><svg><use href="#chat"/></svg><span data-i18n="cta_wa">WhatsApp us</span></a>
+        <a class="btn btn-ghost" href="#book"><svg><use href="#cal"/></svg><span data-i18n="cta_book">Book ahead</span></a>
+      </div>
+      <p class="bilingual"><span>English</span><span>Español</span><span data-i18n="hero_lang">We speak both</span><span>WhatsApp</span></p>
+    </div>
+    <aside class="callcard">
+      <p class="eyebrow" data-i18n="card_eyebrow">Mobile &amp; emergency calls</p>
+      <a class="num" href="tel:+14132126622">(413) 212-6622</a>
+      <button type="button" class="copy" data-copy="(413) 212-6622" data-i18n="copy_num">Copy number</button>
+      <ul>
+        <li data-i18n="card_5">Call, text or WhatsApp us</li>
+        <li data-i18n="card_1">Same-day service</li>
+        <li data-i18n="card_2">Free estimates before any work</li>
+        <li data-i18n="card_3">Loaner cars available</li>
+        <li data-i18n="card_4">10 years of mechanic experience</li>
+      </ul>
+    </aside>
+  </div>
+  <svg class="hills" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 L0 38 L140 14 L260 34 L420 4 L560 30 L700 12 L860 36 L1000 8 L1200 32 L1200 60 Z"/></svg>
+</section>
+
+<div class="perks">
+  <div class="wrap">
+    <div class="perk"><b data-i18n="p1">We come to you</b><p data-i18n="p1d">Home, work, or roadside anywhere in our service area.</p></div>
+    <div class="perk"><b data-i18n="p2">Same day</b><p data-i18n="p2d">Call in the morning, back on the road by evening for most jobs.</p></div>
+    <div class="perk"><b data-i18n="p3">Free estimates</b><p data-i18n="p3d">You get the price before we start. No surprises.</p></div>
+    <div class="perk"><b data-i18n="p4">Loaner cars</b><p data-i18n="p4d">For bigger jobs, ask about a loaner so you're not stuck.</p></div>
+  </div>
+</div>
+
+<div class="sos" style="margin-top:40px">
+  <div class="wrap">
+    <div class="sign"><div class="diamond"><span>!</span></div>
+      <div><h3 data-i18n="sos_h">Broke down or need us to come to you?</h3>
+      <p data-i18n="sos_p">Mobile and emergency jobs are booked by phone or WhatsApp, so we can get to you fast.</p></div></div>
+    <div class="btnrow"><a class="btn btn-yellow" href="tel:+14132126622"><svg><use href="#phone"/></svg><span data-i18n="cta_call">Call (413) 212-6622</span></a>
+    <a class="btn btn-wa" href="https://wa.me/14132126622" target="_blank" rel="noopener"><svg><use href="#chat"/></svg><span data-i18n="cta_wa">WhatsApp us</span></a></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow" data-i18n="svc_eyebrow">What we fix</p><h2 data-i18n="svc_h">Services</h2></div>
+    <div class="svc" id="svc-list"></div>
+    <p class="makes" data-i18n="makes">Domestic, Japanese, Korean and European cars, SUVs and light trucks.</p>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow" data-i18n="pr_eyebrow">Straight pricing</p><h2 data-i18n="pr_h">Prices</h2>
+      <p data-i18n="pr_p">We set our prices below typical Berkshire-area shop rates. Every job starts with a free written estimate.</p></div>
+    <div class="fees">
+      <div class="fee"><span class="amt">$45</span><b data-i18n="fee1">Mobile fee, Pittsfield</b><p data-i18n="fee1d">Covers our trip to you inside Pittsfield.</p></div>
+      <div class="fee"><span class="amt">$65</span><b data-i18n="fee2">Mobile fee, rest of area</b><p data-i18n="fee2d">Elsewhere in Berkshire County and bordering NY towns.</p></div>
+      <div class="fee"><span class="amt">$95<small style="font-size:22px">/hr</small></span><b data-i18n="fee3">Labor rate</b><p data-i18n="fee3d">For jobs not on the flat-rate list below.</p></div>
+    </div>
+    <div class="pgroups" id="price-list"></div>
+    <p class="fine" data-i18n="fine">Prices are starting prices for most cars and light trucks, parts included unless noted. Larger engines, European models and trucks may cost more; we'll always tell you before we start. The mobile fee applies to visits to your location only, not to drop-offs at 114 Bartlett Ave.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="story">
+      <p class="eyebrow" data-i18n="ab_eyebrow">About us</p>
+      <h2 data-i18n="ab_h">A local mechanic who shows up.</h2>
+      <p data-i18n="ab_p1">Berkshire County Ready Automotive is a locally owned repair business based in Pittsfield. Our owner has spent 10 years working on cars, and started this business to make repairs easier for the people around here.</p>
+      <p data-i18n="ab_p2">Instead of towing your car to a shop and waiting days, we bring the tools to you. For work that's better done off the road, you can drop your car at our Bartlett Ave location for same-day service.</p>
+      <p data-i18n="ab_p3">We're a bilingual business. Call, text or message us on WhatsApp in English or Spanish.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>10</b><span data-i18n="f1">years of hands-on mechanic experience</span></div>
+      <div class="fact"><b>2</b><span data-i18n="f2">languages: English and Español</span></div>
+      <div class="fact"><b>$0</b><span data-i18n="f3">for an estimate, always</span></div>
+      <div class="fact"><b>1</b><span data-i18n="f4">phone call to get help: (413) 212-6622</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="area">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow" style="color:var(--yellow)" data-i18n="ar_eyebrow">Where we go</p><h2 data-i18n="ar_h">Service area</h2>
+      <p data-i18n="ar_p">All of Berkshire County, plus New York towns along the Berkshire border. Not sure if we cover you? Call and ask.</p></div>
+    <div class="towns">
+      <div><h3>Berkshire County, MA</h3><ul>
+        <li>Pittsfield</li><li>Dalton</li><li>Lenox</li><li>Lee</li><li>Lanesborough</li><li>Cheshire</li><li>Adams</li><li>North Adams</li><li>Williamstown</li><li>Hinsdale</li><li>Richmond</li><li>Stockbridge</li><li>West Stockbridge</li><li>Great Barrington</li><li>Sheffield</li><li>Becket</li><li>Hancock</li><li>Lenox Dale</li><li data-i18n="more">and more</li></ul></div>
+      <div><h3 data-i18n="ny">Bordering New York</h3><ul>
+        <li>New Lebanon</li><li>Canaan</li><li>Stephentown</li><li>Berlin</li><li>Petersburgh</li><li>Austerlitz</li><li>Hillsdale</li><li>Copake</li><li>Ancram</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap book">
+    <div style="display:grid;gap:18px">
+      <div class="head" style="margin:0"><p class="eyebrow" data-i18n="bk_eyebrow">Plan ahead</p><h2 data-i18n="bk_h">Book an appointment</h2>
+        <p data-i18n="bk_p">Use this form to request a future appointment at 114 Bartlett Ave, Pittsfield. We'll call or text to confirm your time.</p></div>
+      <div class="note"><b data-i18n="bk_note_h">Need us to come to you?</b>
+        <p data-i18n="bk_note_p">Mobile visits and emergencies are booked by phone or WhatsApp. Call or message (413) 212-6622.</p>
+        <div class="btnrow"><a class="btn btn-yellow" href="tel:+14132126622"><svg><use href="#phone"/></svg><span data-i18n="cta_call">Call (413) 212-6622</span></a>
+        <a class="btn btn-wa" href="https://wa.me/14132126622" target="_blank" rel="noopener"><svg><use href="#chat"/></svg><span data-i18n="cta_wa">WhatsApp us</span></a></div></div>
+    </div>
+    <form id="book-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="booking">
+      <input type="hidden" name="subject" value="New appointment request from your website">
+      <p hidden><label>Leave this empty: <input name="bot-field" id="f-bot"></label></p>
+      <label><span data-i18n="f_name">Your name</span><input id="f-name" name="name" autocomplete="name" required></label>
+      <label><span data-i18n="f_phone">Phone</span><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
+      <label class="full"><span data-i18n="f_email">Email (optional)</span><input id="f-email" name="email" type="email" autocomplete="email"></label>
+      <label class="full"><span data-i18n="f_vehicle">Vehicle (year, make, model)</span><input id="f-vehicle" name="vehicle" placeholder="2015 Honda Civic" required></label>
+      <label class="full"><span data-i18n="f_service">Service needed</span><select id="f-service" name="service" required></select></label>
+      <label><span data-i18n="f_date">Preferred date</span><input id="f-date" name="date" type="date" required></label>
+      <label><span data-i18n="f_time">Time of day</span><select id="f-time" name="time">
+        <option value="morning" data-i18n="t_m">Morning</option><option value="midday" data-i18n="t_d">Midday</option><option value="afternoon" data-i18n="t_a">Afternoon</option></select></label>
+      <label><span data-i18n="f_lang">Preferred language</span><select id="f-lang" name="lang"><option value="English">English</option><option value="Español">Español</option></select></label>
+      <label><span data-i18n="f_loaner">Need a loaner car?</span><select id="f-loaner" name="loaner"><option value="no" data-i18n="no">No</option><option value="yes" data-i18n="yes">Yes, please</option></select></label>
+      <label class="full"><span data-i18n="f_notes">What's going on? (optional)</span><textarea id="f-notes" name="notes"></textarea></label>
+      <p class="err full" id="f-err" hidden></p>
+      <button class="btn btn-yellow full" id="f-submit" type="submit" style="justify-content:center"><svg><use href="#cal"/></svg><span data-i18n="f_submit">Request appointment</span></button>
+      <div class="result" id="f-sent" hidden role="status">
+        <b data-i18n="s_h" style="font:700 24px var(--display);text-transform:uppercase">Request sent!</b>
+        <p data-i18n="s_p">Thanks. We got your request and will call or text you soon to confirm your time. Need help sooner? Call or WhatsApp (413) 212-6622.</p>
+      </div>
+      <div class="result" id="f-result" hidden>
+        <b data-i18n="r_h" style="font:700 22px var(--display);text-transform:uppercase">Send us your request</b>
+        <p data-i18n="r_p">Send this to us on WhatsApp, by text or by email and we'll confirm your appointment.</p>
+        <pre id="f-summary"></pre>
+        <div class="row">
+          <a class="btn btn-wa" id="r-wa" href="#" target="_blank" rel="noopener"><svg><use href="#chat"/></svg><span data-i18n="r_wa">Send on WhatsApp</span></a>
+          <a class="btn btn-yellow" id="r-sms" href="#"><span data-i18n="r_text">Text it</span></a>
+          <a class="btn btn-ghost" id="r-mail" href="#"><span data-i18n="r_mail">Email it</span></a>
+          <button type="button" class="btn btn-ghost" id="r-copy"><span data-i18n="r_copy">Copy</span></button>
+        </div>
+        <p style="color:var(--muted);font-size:17px" data-i18n="r_fallback">WhatsApp / Text: (413) 212-6622 · Email: berkreadyauto@gmail.com</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><svg><use href="#mark"/></svg></a>
+    <div class="contact">
+      <b style="font:800 24px var(--display);letter-spacing:.5px">BERKSHIRE COUNTY READY AUTOMOTIVE</b>
+      <span data-i18n="tagline">Mobile &amp; Same Day Mechanic</span>
+      <span>114 Bartlett Ave, Pittsfield, MA 01201</span>
+      <span><a href="tel:+14132126622">(413) 212-6622</a> · <a href="mailto:berkreadyauto@gmail.com">berkreadyauto@gmail.com</a></span>
+      <span><a href="https://wa.me/14132126622" target="_blank" rel="noopener">WhatsApp: (413) 212-6622</a></span>
+      <small data-i18n="hablamos">Hablamos español.</small>
+    </div>
+    <a class="btn btn-yellow" href="tel:+14132126622"><svg><use href="#phone"/></svg><span data-i18n="call_now">Call now</span></a>
+  </div>
+</footer>
+
+<script>
+const SERVICES=[
+ ["Oil changes","Cambios de aceite","Conventional, blend and full synthetic.","Convencional, semisintético y sintético."],
+ ["Brakes","Frenos","Pads, rotors, calipers and brake fluid.","Pastillas, discos, calipers y líquido de frenos."],
+ ["Check engine light","Luz de check engine","Computer scan and real diagnosis.","Escaneo por computadora y diagnóstico real."],
+ ["Batteries & no-starts","Baterías y no arranca","Jump starts, batteries, starters, alternators.","Pasar corriente, baterías, arranques, alternadores."],
+ ["Tires","Llantas","Flat repair, rotation and seasonal swaps.","Reparación de ponchaduras, rotación y cambio de temporada."],
+ ["Air conditioning","Aire acondicionado","AC diagnosis, recharge and repair.","Diagnóstico, recarga y reparación de A/C."],
+ ["Exhaust","Escape","Leaks, pipes, mufflers and hangers.","Fugas, tubos, silenciadores y soportes."],
+ ["Engine repair","Reparación de motor","Belts, water pumps, gaskets, cooling system.","Bandas, bombas de agua, juntas, sistema de enfriamiento."],
+ ["Transmission","Transmisión","Fluid service, diagnosis and repair.","Servicio de líquido, diagnóstico y reparación."]
+];
+const PRICES=[
+ {g:["Maintenance","Mantenimiento"],rows:[
+  ["Conventional oil change","Cambio de aceite convencional","Up to 5 qts + filter","Hasta 5 cuartos + filtro","$45"],
+  ["Synthetic blend oil change","Cambio de aceite semisintético","","","$59"],
+  ["Full synthetic oil change","Cambio de aceite sintético","","","$79"],
+  ["Tire rotation","Rotación de llantas","","","$29"],
+  ["Seasonal tire swap (on rims)","Cambio de llantas de temporada (con rin)","Winter ↔ summer","Invierno ↔ verano","$49"],
+  ["Flat tire repair","Reparación de ponchadura","","","$29"],
+  ["Coolant flush","Cambio de anticongelante","","","from $109"],
+  ["Transmission fluid service","Servicio de líquido de transmisión","","","from $119"]]},
+ {g:["Brakes","Frenos"],rows:[
+  ["Brake pads, per axle","Pastillas de freno, por eje","","","from $169"],
+  ["Pads + rotors, per axle","Pastillas + discos, por eje","","","from $319"],
+  ["Brake fluid flush","Cambio de líquido de frenos","","","$89"]]},
+ {g:["Diagnosis","Diagnóstico"],rows:[
+  ["Check engine light diagnosis","Diagnóstico de luz de check engine","Credited toward the repair","Se descuenta de la reparación","$79"],
+  ["AC diagnosis","Diagnóstico de A/C","","","$79"],
+  ["Engine & transmission work","Trabajo de motor y transmisión","Quoted after inspection","Cotizado después de inspección","Free estimate"]]},
+ {g:["Starting & electrical","Arranque y eléctrico"],rows:[
+  ["Jump start","Pasar corriente","","","$55"],
+  ["Battery replacement, installed","Cambio de batería, instalada","Battery included","Batería incluida","from $149"],
+  ["Starter replacement","Cambio de marcha / arranque","","","from $279"],
+  ["Alternator replacement","Cambio de alternador","","","from $349"],
+  ["Spark plugs (4-cylinder)","Bujías (4 cilindros)","","","from $99"]]},
+ {g:["Other repairs","Otras reparaciones"],rows:[
+  ["AC recharge","Recarga de A/C","","","from $129"],
+  ["Exhaust repair","Reparación de escape","Plus parts","Más partes","from $99"]]}
+];
+const ES={
+ tagline:"Mecánico móvil y el mismo día",nav_services:"Servicios",nav_prices:"Precios",nav_about:"Nosotros",nav_book:"Citas",
+ hero_eyebrow:"Condado de Berkshire, MA y NY vecino",hero_h1:"Su mecánico <em>va a usted.</em>",
+ hero_lede:"¿Se descompuso, no arranca o solo necesita servicio? Lo reparamos en su casa, en el trabajo o en la carretera, muchas veces el mismo día.",
+ cta_call:"Llame al (413) 212-6622",cta_book:"Hacer una cita",cta_wa:"Escríbanos por WhatsApp",card_5:"Llámenos, mándenos texto o WhatsApp",r_wa:"Mandar por WhatsApp",hero_lang:"Hablamos los dos",
+ card_eyebrow:"Servicio móvil y emergencias",copy_num:"Copiar número",card_1:"Servicio el mismo día",card_2:"Presupuesto gratis antes de cualquier trabajo",card_3:"Carros de préstamo disponibles",card_4:"10 años de experiencia como mecánico",
+ p1:"Vamos a usted",p1d:"Casa, trabajo o carretera en toda nuestra área de servicio.",p2:"El mismo día",p2d:"Llame en la mañana y para la tarde ya está manejando en la mayoría de los trabajos.",p3:"Presupuesto gratis",p3d:"Le damos el precio antes de empezar. Sin sorpresas.",p4:"Carros de préstamo",p4d:"Para trabajos grandes, pregunte por un carro de préstamo.",
+ sos_h:"¿Se descompuso o necesita que vayamos a usted?",sos_p:"Las visitas móviles y emergencias se agendan por teléfono o WhatsApp, para llegar rápido.",
+ svc_eyebrow:"Lo que reparamos",svc_h:"Servicios",makes:"Autos domésticos, japoneses, coreanos y europeos, SUVs y camionetas ligeras.",
+ pr_eyebrow:"Precios claros",pr_h:"Precios",pr_p:"Nuestros precios están por debajo de lo que cobran los talleres típicos de Berkshire. Cada trabajo empieza con un presupuesto escrito gratis.",
+ fee1:"Cargo móvil, Pittsfield",fee1d:"Cubre el viaje a usted dentro de Pittsfield.",fee2:"Cargo móvil, resto del área",fee2d:"Resto del condado de Berkshire y pueblos vecinos de NY.",fee3:"Mano de obra",fee3d:"Para trabajos que no están en la lista de precios fijos.",
+ fine:"Son precios iniciales para la mayoría de autos y camionetas ligeras, con partes incluidas salvo que se indique. Motores grandes, modelos europeos y camionetas pueden costar más; siempre le avisamos antes de empezar. El cargo móvil aplica solo a visitas a su ubicación, no cuando deja el carro en 114 Bartlett Ave.",
+ ab_eyebrow:"Nosotros",ab_h:"Un mecánico local que sí llega.",
+ ab_p1:"Berkshire County Ready Automotive es un negocio de reparación de dueños locales, con base en Pittsfield. Nuestro dueño tiene 10 años trabajando en carros y abrió este negocio para hacerle más fácil las reparaciones a la gente de aquí.",
+ ab_p2:"En vez de remolcar su carro a un taller y esperar días, llevamos las herramientas a usted. Para trabajos que es mejor hacer fuera de la calle, puede dejar su carro en nuestra ubicación de Bartlett Ave para servicio el mismo día.",
+ ab_p3:"Somos un negocio bilingüe. Llámenos, mándenos texto o escríbanos por WhatsApp en inglés o en español.",
+ f1:"años de experiencia práctica como mecánico",f2:"idiomas: inglés y español",f3:"por un presupuesto, siempre",f4:"llamada para recibir ayuda: (413) 212-6622",
+ ar_eyebrow:"A dónde vamos",ar_h:"Área de servicio",ar_p:"Todo el condado de Berkshire, más los pueblos de Nueva York en la frontera con Berkshire. ¿No sabe si llegamos a su zona? Llame y pregunte.",more:"y más",ny:"Nueva York (frontera)",
+ bk_eyebrow:"Planee con tiempo",bk_h:"Haga una cita",bk_p:"Use este formulario para pedir una cita futura en 114 Bartlett Ave, Pittsfield. Le llamamos o le mandamos texto para confirmar.",
+ bk_note_h:"¿Necesita que vayamos a usted?",bk_note_p:"Las visitas móviles y emergencias se agendan por teléfono o WhatsApp. Llame o escriba al (413) 212-6622.",
+ f_name:"Su nombre",f_phone:"Teléfono",f_email:"Email (opcional)",s_h:"¡Solicitud enviada!",s_p:"Gracias. Recibimos su solicitud y le llamaremos o mandaremos texto pronto para confirmar la hora. ¿Necesita ayuda antes? Llame o escriba por WhatsApp al (413) 212-6622.",f_vehicle:"Vehículo (año, marca, modelo)",f_service:"Servicio que necesita",f_date:"Fecha preferida",f_time:"Hora del día",t_m:"Mañana",t_d:"Mediodía",t_a:"Tarde",
+ f_lang:"Idioma preferido",f_loaner:"¿Necesita carro de préstamo?",no:"No",yes:"Sí, por favor",f_notes:"¿Qué le pasa al carro? (opcional)",f_submit:"Pedir cita",
+ r_h:"Mándenos su solicitud",r_p:"Mándenos esto por WhatsApp, texto o email y le confirmamos la cita.",r_text:"Mandar texto",r_mail:"Mandar email",r_copy:"Copiar",
+ r_fallback:"WhatsApp / Texto: (413) 212-6622 · Email: berkreadyauto@gmail.com",hablamos:"Hablamos español.",call_now:"Llame ya",
+ err:"Por favor llene su nombre, teléfono, vehículo, servicio y fecha.",err_date:"Elija una fecha a partir de mañana. Para hoy, llámenos.",copied:"Copiado",other:"Otro / no estoy seguro",free:"Presupuesto gratis",from:"desde"
+};
+const EN_EXTRA={err:"Please fill in your name, phone, vehicle, service and date.",err_date:"Pick a date starting tomorrow. For today, please call us.",copied:"Copied",other:"Other / not sure",free:"Free estimate",from:"from"};
+let lang="en";const EN={};
+document.querySelectorAll("[data-i18n]").forEach(el=>{EN[el.dataset.i18n]??=el.textContent});
+document.querySelectorAll("[data-i18n-html]").forEach(el=>{EN[el.dataset.i18nHtml]??=el.innerHTML});
+const t=k=>(lang==="es"?ES[k]:(EN[k]??EN_EXTRA[k]))??EN_EXTRA[k]??k;
+const i=lang==="es"?1:0;
+
+function renderLists(){
+  const ix=lang==="es"?1:0;
+  document.getElementById("svc-list").innerHTML=SERVICES.map(s=>`<div><h3>${s[ix]}</h3><p>${s[2+ix]}</p></div>`).join("");
+  document.getElementById("price-list").innerHTML=PRICES.map(g=>`<div class="pgroup"><h3>${g.g[ix]}</h3>${g.rows.map(r=>{
+    let p=r[4];if(p==="Free estimate")p=t("free");else p=p.replace("from",t("from"));
+    const sub=r[2+ix]?`<small>${r[2+ix]}</small>`:"";
+    return `<div class="prow"><span>${r[ix]}${sub}</span><b>${p}</b></div>`}).join("")}</div>`).join("");
+  const sel=document.getElementById("f-service");const cur=sel.selectedIndex;
+  const opts=[];PRICES.forEach(g=>g.rows.forEach(r=>{if(!/Jump start/.test(r[0]))opts.push(r[ix])}));opts.push(t("other"));
+  sel.innerHTML=`<option value="">—</option>`+opts.map(o=>`<option>${o}</option>`).join("");
+  if(cur>0)sel.selectedIndex=cur;
+}
+function setLang(l){
+  lang=l;document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n)});
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{el.innerHTML=t(el.dataset.i18nHtml)});
+  document.getElementById("lang-en").setAttribute("aria-pressed",l==="en");
+  document.getElementById("lang-es").setAttribute("aria-pressed",l==="es");
+  document.getElementById("f-lang").value=l==="es"?"Español":"English";
+  renderLists();
+  try{localStorage.setItem("bcr-lang",l)}catch(e){}
+}
+document.getElementById("lang-en").onclick=()=>setLang("en");
+document.getElementById("lang-es").onclick=()=>setLang("es");
+
+const d=new Date();d.setDate(d.getDate()+1);
+const tomorrow=d.toISOString().slice(0,10);
+document.getElementById("f-date").min=tomorrow;
+
+function copyText(txt,btn){
+  const done=()=>{const s=btn.querySelector("span")||btn;const o=s.textContent;s.textContent=t("copied");setTimeout(()=>s.textContent=o,1500)};
+  if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done).catch(()=>{});
+}
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>copyText(b.dataset.copy,b));
+
+document.getElementById("book-form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const err=document.getElementById("f-err");
+  if(!v("f-name")||!v("f-phone")||!v("f-vehicle")||!v("f-service")||!v("f-date")){err.textContent=t("err");err.hidden=false;return}
+  if(v("f-date")<tomorrow){err.textContent=t("err_date");err.hidden=false;return}
+  err.hidden=true;
+  const es=lang==="es";
+  const timeSel=document.getElementById("f-time");const loanSel=document.getElementById("f-loaner");
+  const lines=[
+    es?"Solicitud de cita – Berkshire County Ready Automotive":"Appointment request – Berkshire County Ready Automotive",
+    `${es?"Nombre":"Name"}: ${v("f-name")}`,`${es?"Teléfono":"Phone"}: ${v("f-phone")}`,
+    `${es?"Vehículo":"Vehicle"}: ${v("f-vehicle")}`,`${es?"Servicio":"Service"}: ${v("f-service")}`,
+    `${es?"Fecha":"Date"}: ${v("f-date")} (${timeSel.options[timeSel.selectedIndex].text})`,
+    `${es?"Idioma":"Language"}: ${v("f-lang")}`,`${es?"Carro de préstamo":"Loaner"}: ${loanSel.options[loanSel.selectedIndex].text}`,
+    `${es?"Lugar":"Location"}: 114 Bartlett Ave, Pittsfield`];
+  if(v("f-notes"))lines.push(`${es?"Notas":"Notes"}: ${v("f-notes")}`);
+  if(v("f-email"))lines.splice(3,0,`Email: ${v("f-email")}`);
+  const msg=lines.join("\n");
+  document.getElementById("f-summary").textContent=msg;
+  document.getElementById("r-wa").href="https://wa.me/14132126622?text="+encodeURIComponent(msg);
+  document.getElementById("r-sms").href="sms:+14132126622?&body="+encodeURIComponent(msg);
+  document.getElementById("r-mail").href="mailto:berkreadyauto@gmail.com?subject="+encodeURIComponent(lines[0])+"&body="+encodeURIComponent(msg);
+  document.getElementById("r-copy").onclick=e2=>copyText(msg,e2.currentTarget);
+  const form=e.target,sent=document.getElementById("f-sent"),r=document.getElementById("f-result"),btn=document.getElementById("f-submit");
+  sent.hidden=true;r.hidden=true;
+  // On the live website (Netlify), send the form straight to the owner's email.
+  const live=location.protocol==="https:"&&!/claude|localhost|127\.0\.0\.1/.test(location.hostname);
+  if(live){
+    btn.disabled=true;
+    try{
+      const res=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(form)).toString()});
+      if(res.ok){form.querySelectorAll("input:not([type=hidden]),textarea").forEach(el=>{if(el.id!=="f-bot")el.value=""});
+        sent.hidden=false;btn.disabled=false;sent.scrollIntoView({block:"nearest"});return}
+    }catch(_){}
+    btn.disabled=false;
+  }
+  // Backup: let the customer send it themselves.
+  r.hidden=false;r.scrollIntoView({block:"nearest"});
+});
+
+let saved="en";try{saved=localStorage.getItem("bcr-lang")||"en"}catch(e){}
+setLang(saved==="es"?"es":"en");
+</script>
+
+</body>
+</html>
